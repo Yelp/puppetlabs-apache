@@ -67,31 +67,32 @@ class apache::params inherits ::apache::version {
     $suphp_configpath     = undef
     # NOTE: The module for Shibboleth is not available to RH/CentOS without an additional repository. http://wiki.aaf.edu.au/tech-info/sp-install-guide
     $mod_packages         = {
-      'auth_kerb'   => 'mod_auth_kerb',
-      'authnz_ldap' => $::apache::version::distrelease ? {
+      'auth_kerb'     => 'mod_auth_kerb',
+      'authnz_ldap'   => $::apache::version::distrelease ? {
         '7'     => 'mod_ldap',
         default => 'mod_authz_ldap',
-      },
-      'fastcgi'     => 'mod_fastcgi',
-      'fcgid'       => 'mod_fcgid',
-      'pagespeed'   => 'mod-pagespeed-stable',
-      'passenger'   => 'mod_passenger',
-      'perl'        => 'mod_perl',
-      'php5'        => $::apache::version::distrelease ? {
+       },
+      'authnz_mellon' => 'mod_auth_mellon',
+      'fastcgi'       => 'mod_fastcgi',
+      'fcgid'         => 'mod_fcgid',
+      'pagespeed'     => 'mod-pagespeed-stable',
+      'passenger'     => 'mod_passenger',
+      'perl'          => 'mod_perl',
+      'php5'          => $::apache::version::distrelease ? {
         '5'     => 'php53',
         default => 'php',
       },
-      'proxy_html'  => 'mod_proxy_html',
-      'python'      => 'mod_python',
-      'security'    => 'mod_security',
-      'shibboleth'  => 'shibboleth',
-      'ssl'         => 'mod_ssl',
-      'wsgi'        => 'mod_wsgi',
-      'dav_svn'     => 'mod_dav_svn',
-      'suphp'       => 'mod_suphp',
-      'xsendfile'   => 'mod_xsendfile',
-      'nss'         => 'mod_nss',
-      'shib2'       => 'shibboleth',
+      'proxy_html'    => 'mod_proxy_html',
+      'python'        => 'mod_python',
+      'security'      => 'mod_security',
+      'shibboleth'    => 'shibboleth',
+      'ssl'           => 'mod_ssl',
+      'wsgi'          => 'mod_wsgi',
+      'dav_svn'       => 'mod_dav_svn',
+      'suphp'         => 'mod_suphp',
+      'xsendfile'     => 'mod_xsendfile',
+      'nss'           => 'mod_nss',
+      'shib2'         => 'shibboleth',
     }
     $mod_libs             = {
       'php5' => 'libphp5.so',
