@@ -21,22 +21,8 @@ describe 'apache::mod::authnz_mellon', :type => :class do
     it { is_expected.to contain_class("apache::params") }
     it { is_expected.to contain_class("apache::mod::mellon") }
     it { is_expected.to contain_apache__mod('authnz_mellon') }
+    it { is_expected.to contain_file('authnz_mellon.conf') }
 
-    context 'default verifyServerCert' do
-      it { is_expected.to contain_file('authnz_mellon.conf').with_content(/^MELLONVerifyServerCert On$/) }
-    end
-
-    context 'verifyServerCert = false' do
-      let(:params) { { :verifyServerCert => false } }
-      it { is_expected.to contain_file('authnz_mellon.conf').with_content(/^MELLONVerifyServerCert Off$/) }
-    end
-
-    context 'verifyServerCert = wrong' do
-      let(:params) { { :verifyServerCert => 'wrong' } }
-      it 'should raise an error' do
-        expect { is_expected.to raise_error Puppet::Error }
-      end
-    end
   end #Debian
 
   context "on a RedHat OS" do
@@ -54,22 +40,8 @@ describe 'apache::mod::authnz_mellon', :type => :class do
     it { is_expected.to contain_class("apache::params") }
     it { is_expected.to contain_class("apache::mod::mellon") }
     it { is_expected.to contain_apache__mod('authnz_mellon') }
+    it { is_expected.to contain_file('authnz_mellon.conf') }
 
-    context 'default verifyServerCert' do
-      it { is_expected.to contain_file('authnz_mellon.conf').with_content(/^MELLONVerifyServerCert On$/) }
-    end
-
-    context 'verifyServerCert = false' do
-      let(:params) { { :verifyServerCert => false } }
-      it { is_expected.to contain_file('authnz_mellon.conf').with_content(/^MELLONVerifyServerCert Off$/) }
-    end
-
-    context 'verifyServerCert = wrong' do
-      let(:params) { { :verifyServerCert => 'wrong' } }
-      it 'should raise an error' do
-        expect { is_expected.to raise_error Puppet::Error }
-      end
-    end
   end # Redhat
 
 end
