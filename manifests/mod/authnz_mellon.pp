@@ -1,7 +1,6 @@
 class apache::mod::authnz_mellon (
   $verifyServerCert = true,
 ) {
-  include '::apache::mod::mellon'
   ::apache::mod { 'authnz_mellon': }
 
   validate_bool($verifyServerCert)
