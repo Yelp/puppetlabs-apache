@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'apache::mod::authnz_mellon', :type => :class do
+describe 'apache::mod::auth_mellon', :type => :class do
   let :pre_condition do
     'include apache'
   end
@@ -20,8 +20,8 @@ describe 'apache::mod::authnz_mellon', :type => :class do
     end
     it { is_expected.to contain_class("apache::params") }
     it { is_expected.to contain_class("apache::mod::mellon") }
-    it { is_expected.to contain_apache__mod('authnz_mellon') }
-    it { is_expected.to contain_file('authnz_mellon.conf') }
+    it { is_expected.to contain_apache__mod('auth_mellon') }
+    it { is_expected.to contain_file('auth_mellon.conf') }
 
   end #Debian
 
@@ -39,8 +39,8 @@ describe 'apache::mod::authnz_mellon', :type => :class do
     end
     it { is_expected.to contain_class("apache::params") }
     it { is_expected.to contain_class("apache::mod::mellon") }
-    it { is_expected.to contain_apache__mod('authnz_mellon') }
-    it { is_expected.to contain_file('authnz_mellon.conf') }
+    it { is_expected.to contain_apache__mod('auth_mellon') }
+    it { is_expected.to contain_file('auth_mellon.conf') }
 
   end # Redhat
 
