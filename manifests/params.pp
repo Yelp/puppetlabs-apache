@@ -72,7 +72,7 @@ class apache::params inherits ::apache::version {
         '7'     => 'mod_ldap',
         default => 'mod_authz_ldap',
        },
-      'authnz_mellon' => 'mod_auth_mellon',
+      'auth_mellon' => 'mod_auth_mellon',
       'fastcgi'       => 'mod_fastcgi',
       'fcgid'         => 'mod_fcgid',
       'pagespeed'     => 'mod-pagespeed-stable',
