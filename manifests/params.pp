@@ -166,6 +166,7 @@ class apache::params inherits ::apache::version {
     $suphp_configpath    = '/etc/php5/apache2'
     $mod_packages        = {
       'auth_kerb'   => 'libapache2-mod-auth-kerb',
+      'auth_mellon' => 'libapache2-mod-auth-mellon',
       'dav_svn'     => 'libapache2-svn',
       'fastcgi'     => 'libapache2-mod-fastcgi',
       'fcgid'       => 'libapache2-mod-fcgid',
