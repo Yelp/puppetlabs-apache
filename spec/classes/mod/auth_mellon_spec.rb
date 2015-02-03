@@ -19,9 +19,9 @@ describe 'apache::mod::auth_mellon', :type => :class do
       }
     end
     it { is_expected.to contain_class("apache::params") }
-    it { is_expected.to contain_class("apache::mod::mellon") }
     it { is_expected.to contain_apache__mod('auth_mellon') }
     it { is_expected.to contain_file('auth_mellon.conf') }
+    it { is_expected.to contain_package('libapache2-mod-auth-mellon') }
 
   end #Debian
 
@@ -38,7 +38,6 @@ describe 'apache::mod::auth_mellon', :type => :class do
       }
     end
     it { is_expected.to contain_class("apache::params") }
-    it { is_expected.to contain_class("apache::mod::mellon") }
     it { is_expected.to contain_apache__mod('auth_mellon') }
     it { is_expected.to contain_file('auth_mellon.conf') }
 
