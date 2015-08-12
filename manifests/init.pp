@@ -232,7 +232,6 @@ class apache (
     require => Package['httpd'],
   }
   concat::fragment { 'Apache ports header':
-    ensure  => present,
     target  => $ports_file,
     content => template('apache/ports_header.erb')
   }
